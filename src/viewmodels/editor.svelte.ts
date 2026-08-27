@@ -90,9 +90,6 @@ class Editor {
 		this.insertInitialVerseState = $state.snapshot(this.verse);
 		this.mode = "insert";
 		tick().then(() => {
-			console.log(this.focusedElementId);
-			console.log(this.elementReferences);
-			console.log(this.focusedElement);
 			this.focusedElement?.focus();
 		});
 	}

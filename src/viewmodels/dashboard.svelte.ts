@@ -36,10 +36,8 @@ class Dashboard {
 
 	toggleChapter(chapter: number) {
 		if (this.expandedChapters.has(chapter)) {
-			console.log("delete", chapter);
 			this.expandedChapters.delete(chapter);
 		} else {
-			console.log("add", chapter);
 			this.expandedChapters.add(chapter);
 		}
 	}
