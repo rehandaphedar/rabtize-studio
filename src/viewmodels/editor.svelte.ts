@@ -309,7 +309,7 @@ class Editor {
 					v.segments ??= [];
 					v.segments.push({ t: "" });
 				});
-				this.focusedElementId = 0;
+				this.focusedElementId = (this.verse.segments?.length || 1) - 1;
 				break;
 		}
 	}
