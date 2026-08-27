@@ -19,6 +19,7 @@ tasks:
       git push --mirror github
   - package: |
       cd ~/${pages_repository}
+      mkdir public
       wget https://git.sr.ht/~rehandaphedar/lafzize-ipython/blob/main/qpc-hafs-word-by-word.json -P public # Temporary workaround until QUL gets an API
       pnpm install --frozen-lockfile 
       pnpm run build
