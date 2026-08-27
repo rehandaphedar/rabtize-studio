@@ -1,0 +1,26 @@
+image: alpine/edge
+secrets:
+  - da2bdd99-4ea0-4290-8e60-6bf7db0efa77
+oauth: pages.sr.ht/PAGES:RW
+environment:
+  mirror_repository: rabtize-studio
+  mirror_username: rehandaphedar
+  pages_repository: rabtize-studio
+  pages_domain: rabtize-studio.srht-site.rehandaphedar.com
+packages:
+  - hut
+  - nodejs
+  - pnpm
+tasks:
+  - mirror-to-github: |
+      cd ~/${mirror_repository}
+      ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+      git remote add github git@github.com:${mirror_username}/${mirror_repository}.git
+      git push --mirror github
+  - package: |
+      cd ~/${pages_repository}
+      pnpm install --frozen-lockfile 
+      pnpm run build
+      tar -C dist -cvz . > ../page.tar.gz
+  - upload: |
+      hut pages publish -d ${pages_domain} page.tar.gz
