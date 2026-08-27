@@ -20,6 +20,8 @@ cd rabtize-studio
 pnpm install --frozen-lockfile
 ```
 
+You need a [QUL compatible word by word Arabic text JSON](https://qul.tarteel.ai/resources/quran-script). Its URL can be set in `public/config.js`.
+
 Development:
 ```sh
 pnpm run dev

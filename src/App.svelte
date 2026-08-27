@@ -5,7 +5,7 @@
 
 	let initialized = $state(false);
 	$effect(() => {
-		fetch("/qpc-hafs-word-by-word.json")
+		fetch(window.APP_CONFIG.words_path)
 			.then((response) => response.json())
 			.then((data) => {
 				app.importArabicWordsData(data);
