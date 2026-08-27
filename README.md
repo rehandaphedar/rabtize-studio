@@ -109,7 +109,7 @@ When a segment is selected:
 
 
 Changes made during an insert or mapping mode session are recorded as a single history entry when the mode is exited.
-	
+
 ### Insert Mode
 
 | Key              | Action                          |
